@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" /> 
+    <title>Roomlist</title>
+</head>
+<body>
+    <h1>Rooms!</h1>
+	<div class="col-md-4" style="padding:20px 0">
+        <!-- Näytetään "Sign out" vain kirjautuneille käyttäjille -->
+		<div sec:authorize="isAuthenticated()">
+            <h3>Hello <span sec:authentication="name"></span>!</h3>
+            <form th:action="@{/logout}" method="post">
+                <div class="col-md-4" style="padding:20px 0"></div>
+                <input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
+            </form>
+        </div>
+        <!-- Näytetään "Login" vain kirjautumattomille käyttäjille -->
+        <div sec:authorize="isAnonymous()">
+            <h3>Hello</span>!</h3>
+            <div class="col-md-4" style="padding:20px 0"></div>
+            <a th:href="@{/login}" class="btn btn-sm btn-primary">Sign in</a>
+            <a th:href="@{/adduser}" class="btn btn-sm btn-primary">Create user</a>
+        </div>
+	</div>
+    <Table class="table table-striped">
+        <tr>
+            <th>Room</th>
+            <th>Size</th>
+            <th>Price</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr th:each="room : ${rooms}">
+            <td th:text="${room.name}"></td>
+            <td th:text="${room.size}"></td>
+            <td th:text="${room.price}"></td>
+            <td><a th:href="@{/delete/{id} (id = ${room.roomId})}" class="btn btn-danger" sec:authorize="hasAuthority('ADMIN')" >Delete</a></td>
+            <td><a th:href="@{/reservationlist/{id} (id = ${room.roomId})}" class="btn btn-success" sec:authorize="hasAuthority('ADMIN')">Reservations</a></td>
+        </tr>
+    </Table>
+    <a href="/addroom"  class="btn btn-info" sec:authorize="hasAuthority('ADMIN')">Add room</a>
+    <a href="/userlist"  class="btn btn-info" sec:authorize="hasAuthority('ADMIN')">Users</a>
+    <a href="/userreservations" class="btn btn-success" sec:authorize="hasAuthority('USER')">My Reservations</a>
+    <a href="/addreservation"  class="btn btn-info">Make reservation</a>
+</body>
+</html>

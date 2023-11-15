@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" /> 
+    <title>Add reservation</title>
+</head>
+<body>
+    <h1>Add reservation</h1>
+    <div>
+        <form th:object="${reservation}" th:action="@{savereservation}" action="#" method="post">
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <label for="date">Date (dd-MM-yyyy)</label>
+            <br>
+            <input type="text" id="date" th:field="*{date}" class="custom" style="width: 200px; height: 40px;">
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <label for="startTime">Starting time (HH:mm)</label>
+            <br>
+            <input type="text" id="start" th:field="*{startTime}" class="custom" style="width: 200px; height: 40px;">
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <label for="endTime">Ending time (HH:mm)</label>
+            <br>
+            <input type="text" id="end" th:field="*{endTime}" class="custom" style="width: 200px; height: 40px;">
+            <div style="clear: both; display: block; height: 10px;"></div>
+			<label for="roomslist">Room</label>
+            <br>
+			<select id="roomslist" th:field="*{room}" style="width: 200px; height: 40px;">
+				<option th:each="room: ${rooms}" th:value="${room.roomId}">
+                    <span th:text="${room.name}"></span>
+                    <span> -Size: <span th:text="${room.size}"></span></span>
+                </option>
+			</select>
+
+            <div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" value="Save" class="btn btn-success"></input>
+        </form>
+        <div style="clear: both; display: block; height: 10px;"></div>
+        <a href="/roomlist"  class="btn btn-info">Rooms</a> 
+    </div>
+</body>
+</html>

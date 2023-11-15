@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" /> 
+    <title>Reservations</title>
+</head>
+<body>
+    <h1>Reservations</h1>
+    <Table class="table table-striped">
+        <tr>
+            <th>Room</th>
+            <th>Date</th>
+            <th>Starting time</th>
+            <th>Ending time</th>
+            <th>User</th>
+            <th></th>
+        </tr>
+        <tr th:each="reservation : ${reservations}">
+            <td th:text="${reservation.room.name}"></td>
+            <td th:text="${#dates.format(reservation.date, 'dd.MM.yyyy')}"></td>
+            <td th:text="${reservation.startTime}"></td>
+            <td th:text="${reservation.endTime}"></td>
+            <td th:text="${reservation.user.username}"></td>
+            <td><a th:href="@{/deletereservation/{id} (id = ${reservation.reservationId})}" class="btn btn-danger" sec:authorize="hasAuthority('ADMIN')" >Delete</a></td>
+        </tr>
+    </Table>
+    <a href="/roomlist"  class="btn btn-info">Rooms</a> 
+</body>
+</html>

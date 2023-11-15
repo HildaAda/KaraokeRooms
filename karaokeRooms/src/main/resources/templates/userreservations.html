@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" /> 
+    <title>Reservations</title>
+</head>
+<body>
+    <h1>User reservations</h1>
+    <div style="clear: both; display: block; height: 10px;"></div>
+	<h3>Your reservations, <span sec:authentication="name"></span>!</h3>
+
+    <Table class="table table-striped">
+        <tr>
+            <th>Room</th>
+            <th>Date</th>
+            <th>Starting time</th>
+            <th>Ending time</th>
+            <th>User</th>
+            <th></th>
+
+        </tr>
+        <tr th:each="reservation : ${reservations}">
+            <td th:text="${reservation.room.name}"></td>
+            <td th:text="${#dates.format(reservation.date, 'dd.MM.yyyy')}"></td>
+            <td th:text="${reservation.startTime}"></td>
+            <td th:text="${reservation.endTime}"></td>
+            <td th:text="${reservation.user.username}"></td>
+        </tr>
+    </Table>
+    <a href="/roomlist"  class="btn btn-success">Rooms</a> 
+</body>
+</html>
