@@ -16,7 +16,6 @@ A web service where users can rent rooms for karaoke sessions. Admin users have 
 
 ### Screenshots
 
-#### Sign in view
 ![Sign in view](karaokeRooms/screenshots/signin.jpg)
 
 Admin users view
