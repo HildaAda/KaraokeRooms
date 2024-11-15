@@ -33,8 +33,8 @@ public class WebSecurityConfig {
             .requestMatchers(toH2Console()).permitAll()
             .requestMatchers(antMatcher("/rooms")).permitAll()
             .requestMatchers(antMatcher("/rooms/{id}")).permitAll()
-            .requestMatchers(antMatcher("/reservations")).permitAll()
-            .requestMatchers(antMatcher("/reservations/{id}")).permitAll()
+            //.requestMatchers(antMatcher("/reservations")).permitAll()
+            //.requestMatchers(antMatcher("/reservations/{id}")).permitAll()
         	.anyRequest().authenticated()
       )
       .csrf(csrf -> csrf
