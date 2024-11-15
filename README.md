@@ -32,4 +32,4 @@ Admin users view
 Users view
 ![Users view](karaokeRooms/screenshots/userview.jpg)
 
-![Reservations view](karaokeRooms/screenshots/userview.jpg)
+![Reservations view](karaokeRooms/screenshots/reservations.jpg)
