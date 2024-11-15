@@ -15,4 +15,12 @@ A web service where users can rent rooms for karaoke sessions. Admin users have 
 - HTML
 
 ### Screenshots
+
+Sign in view
 ![Sign in view](karaokeRooms/screenshots/signin.jpg)
+Admin users view
+![Admin users view](karaokeRooms/screenshots/adminview.jpg)
+Add room view
+![Add room view](karaokeRooms/screenshots/addroom.jpg)
+User list view
+![User list view](karaokeRooms/screenshots/users.jpg)
