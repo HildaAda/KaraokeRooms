@@ -17,12 +17,11 @@ A web service where users can rent rooms for karaoke sessions. Admin users have 
 ### Screenshots
 
 #### Sign in view
-(karaokeRooms/screenshots/signin.jpg)
+![Sign in view](karaokeRooms/screenshots/signin.jpg)
 
 Admin users view
 ![Admin users view](karaokeRooms/screenshots/adminview.jpg)
 
-Add room view
 ![Add room view](karaokeRooms/screenshots/addroom.jpg)
 
 User list view
