@@ -23,5 +23,13 @@ Admin users view
 
 ![Add room view](karaokeRooms/screenshots/addroom.jpg)
 
-User list view
 ![User list view](karaokeRooms/screenshots/users.jpg)
+
+![Add reservation view](karaokeRooms/screenshots/addreservation.jpg)
+
+![Register view](karaokeRooms/screenshots/register.jpg)
+
+Users view
+![Users view](karaokeRooms/screenshots/userview.jpg)
+
+![Reservations view](karaokeRooms/screenshots/userview.jpg)
